@@ -1,0 +1,13 @@
+.SearchBar {
+    width: 196px;
+    height: 42px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    text-align: left;
+    outline: none;
+    flex-shrink: 0;
+    padding-left: 14px;
+  }

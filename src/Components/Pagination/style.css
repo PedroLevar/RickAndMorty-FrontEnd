@@ -1,0 +1,60 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 381px;
+    max-height: 27px;
+}
+
+/* Estilização dos números da paginação */
+#pagination_numbers {
+    font-family: Nunito, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    line-height: 27.28px;
+    color: #909090;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Quando o usuário passa o mouse, os números ficam brancos */
+#pagination_numbers:hover {
+    color: #fff;
+}
+
+/* Estilo para a página ativa */
+#pagination_numbers.active {
+    border: none;
+    cursor: pointer;
+    font-family: Seravek;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24.54px;
+    color: #cbd736;
+}
+
+/* Estilização dos botões de navegação (setas) */
+.pagination-button {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Agora, as setas sempre aparecem, mas ficam desativadas (com opacidade menor) se não puderem ser clicadas */
+.pagination-button:disabled {
+    opacity: 0.5;
+    /* Reduz visibilidade */
+    cursor: not-allowed;
+    /* Indica que o botão está desativado */
+}
+
+/* Ajustes para telas menores */
+@media only screen and (max-width: 500px) {
+    .pagination {
+        max-width: 300px;
+    }
+}
