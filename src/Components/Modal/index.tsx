@@ -80,7 +80,6 @@ const Modal: React.FC<ModalProps> = ({ setModalOpen, characterId }) => {
             : name;
     };
 
-    console.log(character?.location)
 
     useEffect(() => {
         const searchCharacter = async () => {

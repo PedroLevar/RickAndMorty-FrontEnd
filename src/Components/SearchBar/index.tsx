@@ -10,7 +10,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
 
   const handleSearch = (event: any) => {
-    console.log("valor digitado ", event.target.value)
     onSearch(event.target.value)
   }
 
