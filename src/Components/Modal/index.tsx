@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import axios from "axios";
+import api from "../../services/api";
 import { RiGroupLine } from "react-icons/ri";
 
 
@@ -85,15 +85,13 @@ const Modal: React.FC<ModalProps> = ({ setModalOpen, characterId }) => {
     useEffect(() => {
         const searchCharacter = async () => {
             try {
-                const response = await axios.get(
-                    `http://127.0.0.1:5000/character/${characterId}`
-                );
+                const response = await api.get(`/character/${characterId}`);
                 setCharacter(response.data.data);
             } catch (error) {
-                console.log("Erro ao buscar personagem")
+                console.log("Erro ao buscar personagem", error);
             }
-        }
-        searchCharacter()
+        };
+        searchCharacter();
     }, [characterId]);
 
     return (
