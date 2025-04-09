@@ -3,7 +3,7 @@ import SearchBar from "../../Components/SearchBar";
 import Button from "../../Components/Button";
 import logoImage from "../../assets/logo.png";
 import "../Home/style.css";
-import { getCharacters } from "../../services/characterService";
+import api from "../../services/api"
 import LoadingPage from "../../Components/LoadingPage";
 import { CharacterCard } from "../../Components/Cards";
 import Modal from "../../Components/Modal";
@@ -46,11 +46,12 @@ export const Home = () => {
       setSearchTriggered(true);
 
       try {
-        const response = await getCharacters(term, page);
+        const encodedTerm = encodeURIComponent(term);
+        const response = await api.get(`/character/?search=${encodedTerm}&page=${page}`);
 
-        if (response && response.data && response.data.characters) {
-          setSearchResults(response.data.characters);
-          setTotalPages(response.data.total_pages || 1);
+        if (response.data && response.data.data && response.data.data.characters) {
+          setSearchResults(response.data.data.characters);
+          setTotalPages(response.data.data.total_pages || 1);
           setCurrentPage(page);
         } else {
           setSearchResults([]);
@@ -129,8 +130,7 @@ export const Home = () => {
       {modalOpen && (
         <Modal
           characterId={selectCharacter?.id}
-          setModalOpen={setModalOpen}
-        />
+          setModalOpen={setModalOpen} />
       )}
     </>
   );
